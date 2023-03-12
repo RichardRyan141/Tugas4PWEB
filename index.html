@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Login Page</title>
+</head>
+<body align="center" >
+    <h1>LOGIN</h1>
+    <table cellspacing="2" align="center" cellpadding="8" border="0">
+        <tr><td><h2>Email</h2></td>
+            <td><input type="text" placeholder="Enter your email" id="e1"></td></tr>
+        <tr><td><h2>Password</h2></td>
+            <td><input type="password" placeholder="Enter your password" id="p1"></td></tr>
+    </table>
+    <button onclick="submit_form()">Login</button>
+    <button onclick="create()">Signup</button>
+    <script type="text/javascript">
+        function submit_form() {
+            var e = document.getElementById("e1").value;
+            var p = document.getElementById("p1").value;
+
+            var email_val=/^([a-zA-Z0-9_\.\-])+\@(([a-zA-Z0-9\-])+\.)+([a-zA-Z0-9]{2,4})+$/;
+
+            if (e=='' || p=='') {
+                alert("Enter each details correctly");
+            }
+            else if (!email_val.test(e)) {
+                alert('Invalid email format please enter valid email');
+            }
+            else if (document.getElementById("p1").value.length > 12) {
+                alert("Password incorrect");
+            }
+            else if (document.getElementById("p1").value.length < 6) {
+                alert("Password incorrect");
+            }
+            else {
+                alert("Login successfull");
+            }
+        }
+        function create() {
+            window.location = "signup.html";
+        }
+    </script>
+</body>
+</html>
